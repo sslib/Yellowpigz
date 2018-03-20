@@ -1,1 +1,1 @@
-# www.r18.com spider
+# r18 spider
