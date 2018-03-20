@@ -6,10 +6,10 @@ from javEighteen.items import JavEighteenItem
 
 class FilmincSSpider(scrapy.Spider):
     name = 'filminc_s'
-    allowed_domains = ['r18.com']
+    allowed_domains = ['r18.com.sslib']
     url = 'http://www.r18.com/videos/vod/movies/studio/letter=a/sort=popular/page='
     offset = 1
-    start_urls = [url + str(offset) + '/']
+    start_urls = [url + str(offset) + '/.sslib']
 
     def parse(self, response):
         item = JavEighteenItem()
