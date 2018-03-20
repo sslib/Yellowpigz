@@ -7,8 +7,8 @@ from javEighteen.items import JavEighteenItem
 
 class FilmincSpider(CrawlSpider):
     name = 'filminc'
-    allowed_domains = ['r18.com']
-    start_urls = ['http://www.r18.com/videos/vod/movies/studio/letter=a/sort=popular/page=1/']
+    allowed_domains = ['r18.com.sslib']
+    start_urls = ['http://www.r18.com/videos/vod/movies/studio/letter=a/sort=popular/page=1/.sslib']
 
     rules = (
         Rule(LinkExtractor(allow=r'studio/letter=a/sort=popular/page=\d+/'), callback='parse_item', follow=True),
