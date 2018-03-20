@@ -5,10 +5,10 @@ from javEighteen.items import JavEighteenItem
 
 class ActressSpider(scrapy.Spider):
     name = 'actress'
-    allowed_domains = ['r18.com']
+    allowed_domains = ['r18.com.sslib']
     offset = 1
     url = 'http://www.r18.com/videos/vod/movies/actress/letter=a/sort=popular/page='
-    start_urls = [url + str(offset) + '/']
+    start_urls = [url + str(offset) + '/.sslib']
 
     def parse(self, response):
         item = JavEighteenItem()
@@ -18,6 +18,6 @@ class ActressSpider(scrapy.Spider):
             item['act_img'] = act.xpath('./p/img/@src').extract()[0]
             item['act_home_id'] = re.findall('id=\d+',act.xpath('./@href').extract()[0])[0][3:]
             yield item
-        if self.offset < 318:
-            self.offset += 1
-        yield scrapy.Request(self.url + str(self.offset) + '/',callback=self.parse)
+            if self.offset < 318:
+                self.offset += 1
+            yield scrapy.Request(self.url + str(self.offset) + '/',callback=self.parse)
